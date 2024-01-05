@@ -5,3 +5,7 @@
 /.vs
 /main/.vs/main/v17
 /main/main.sln
+env/
+
+
+
