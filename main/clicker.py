@@ -1,5 +1,6 @@
 import pyautogui
 import time
+import subprocess
 # This class is for cliquing on the screen with the mouse and coping the inofrmation of the hand review of pokerstars
 class Clicker:
 
@@ -17,7 +18,8 @@ class Clicker:
         time.sleep(0.5)
         self.press_ctrl_c()
         time.sleep(0.5)
-
+        return subprocess.check_output('powershell Get-Clipboard', shell=True).decode('utf-8') # take wahat is in the clipboard so it is the hand review
+    
     @staticmethod
     def click(x, y) -> None:
         pyautogui.click(x, y)
@@ -34,10 +36,12 @@ class Clicker:
     def press_ctrl_c() -> None:
         pyautogui.hotkey('ctrl', 'c')
 
+
     
 if __name__ == '__main__':
     #pyautogui.displayMousePosition()
     #clicker = Clicker()
     #time.sleep(5)
-    #clicker._run()
+    #print(clicker._run())
+    pass
     
