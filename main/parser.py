@@ -56,7 +56,7 @@ class Parse:
             else:
                 return infos[b+1:]
     def recherche_seat_bb(self,bigblind_pseudo):
-        info = re.search(fr"^Seat \d: {str(bigblind_pseudo)} ",self.main).group()
+        info = re.search(r"^Seat \d: "+bigblind_pseudo,self.main).group()
         self.num_seat_bb = info[6]
 
     def recherche_position(self,num_seat_bb,pseudo):
