@@ -21,7 +21,6 @@ class Parse:
         stack_lowjack = ""
         stack_highjack = ""
         stack_cutoff = ""
-        stack_button = ""
         stack_smallblind = ""
         stack_bigblind = ""
 
