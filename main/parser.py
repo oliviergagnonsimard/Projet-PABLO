@@ -56,7 +56,7 @@ class Parse:
             else:
                 return infos[b+1:]
     def recup_stack_joueur(self,joueur):
-        a = re.search(r"^Seat \d: andy_keiv \(\$\d\.\d+ in chips\)",self.main)
+        a = re.search(r"^Seat \d: andy_keiv \(\$\d\.\d+ in chips\)",self.main).group()
 
     def recherche_seat_bb(self,bigblind_pseudo):
 
