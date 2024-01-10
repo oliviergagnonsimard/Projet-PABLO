@@ -6,7 +6,7 @@ class Clicker:
     def __init__(self):
         pass
 
-    def run(self, first_spot: tuple, second_spot: tuple) -> None:
+    def _run(self, first_spot: tuple = (900,115), second_spot: tuple = (850,500)) -> None:
         self.click(first_spot[0], first_spot[1])
         time.sleep(0.5)
         self.press_down_arrow()
@@ -36,6 +36,8 @@ class Clicker:
 
     
 if __name__ == '__main__':
-    pyautogui.displayMousePosition()
+    #pyautogui.displayMousePosition()
     #clicker = Clicker()
+    #time.sleep(5)
+    #clicker._run()
     
