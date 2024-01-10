@@ -15,7 +15,6 @@ class Parse:
         cutoff = ""
         button = ""
 
-
         stack_utg = ""
         stack_utg_1 = ""
         stack_utg_2 = ""
@@ -30,7 +29,7 @@ class Parse:
         turn = ""
         river = ""
 
-        motif_1 = r'^Seat 1:[ABC]'
+        motif_1 = r'^Seat 1: \w+'
 
 
         smallblind = ":\sposts\ssmall\sblind"
@@ -38,17 +37,23 @@ class Parse:
         bigblind_motif = r".+:\sposts\sbig\sblind"
 
         bb = re.search(bigblind_motif, self.main)
+        bigblind = bb.recup_pseudo()
 
 
-
-    def recup_pseudo(self,chemin):
+    def recup_pseudo_avant(self, chemin):
         for i in chemin:
             a = ""
             if i != ":":
                 a += i
             else:
                 pseudo = a
-
-
+    def recup_pseudo_apres(self, chemin):
+        for i in chemin:
+        #    a = ""
+            b = 0
+            if i != ":":
+                b+=1
+        #    else:
+        #        pseudo = chemin[]
 
 
