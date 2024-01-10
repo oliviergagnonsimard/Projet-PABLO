@@ -31,12 +31,11 @@ class Parse:
 
         motif_1 = r'^Seat \w: andy_keiv'
 
-
         smallblind_info = re.search(r":\sposts\ssmall\sblind", self.main).group()
         bigblind_info = re.search(r".+:\sposts\sbig\sblind", self.main).group()
         smallblind = self.recup_pseudo_avant(smallblind_info)
         bigblind = self.recup_pseudo_avant(bigblind_info)
-
+        self.recherche_seat_bb(bigblind)
 
     def recup_pseudo_avant(self, infos):
         for i in infos:
@@ -57,7 +56,21 @@ class Parse:
         self.num_seat_bb = info[6]
 
     def recherche_position(self,num_seat_bb,pseudo):
-        pass
+        if re.search(r"^Table '\w+ \w+' 6-max",self.main):
+            no_seat = int(re.search(fr"^ Seat \w:{pseudo}",self.main).group()[6])
+            if no_seat == num_seat_bb+1 or no_seat == num_seat_bb-5:
+                lowjack = pseudo
+            elif no_seat == num_seat_bb+2 or no_seat == num_seat_bb-4:
+                highjack = pseudo
+            elif no_seat == num_seat_bb+3 or no_seat == num_seat_bb-3:
+                cutoff = pseudo
+            elif no_seat == num_seat_bb+4 or no_seat == num_seat_bb-2:
+                button = pseudo
+        if re.search(r"^Table '\w+ \w+' 9-max",self.main):
+            pass
+
+
+
 
 
 
