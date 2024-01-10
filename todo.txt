@@ -9,7 +9,7 @@
 3. faire un parseur des donner pour les mettre dans un format lisible dans la db
     3.1 identifier chque info et comment elle sont dit
     3.2 faire c meiluer regex et fonction de str 
-    3.3 préparer pour en voyer dans db
+    3.3 préparer pour envoyer dans db
 4. faire une database
     4.1 avec wtf on fait sa?
     4.2 faire marcher la db
