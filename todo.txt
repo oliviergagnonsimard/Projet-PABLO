@@ -1,0 +1,16 @@
+1. faire en sorte que le bot se setup tous seul en lancant le scipt 
+    1.1 ouvirir pokerstar
+    1.2 ouvrire 21 table et ouvir l'historique des mains en pleine écrant
+    1.3 faire un système pour que nos bot ouvre pas tous les meme table (auccune idée commetn faire lol)
+2. faire un bot qui clique et qui copie les main de chaque 
+    2.1 faire le technique a vic puor que sa clique a la bonne place
+    2.2 s,assurer que c toujnours la fenentre et pas un popup random
+    2.3 exporter les donenr dans le ctrl + c (avec windows api sauf si moyen plus  simple trouver)
+3. faire un parseur des donner pour les mettre dans un format lisible dans la db
+    3.1 identifier chque info et comment elle sont dit
+    3.2 faire c meiluer regex et fonction de str 
+    3.3 préparer pour en voyer dans db
+4. faire une database
+    4.1 avec wtf on fait sa?
+    4.2 faire marcher la db
+

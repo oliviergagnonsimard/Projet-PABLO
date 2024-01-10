@@ -14,7 +14,16 @@ class Parse:
         button = ""
         smallblind = ""
         bigblind = ""
-        effective_stack = ""
+
+        stack_utg = ""
+        stack_utg_1 = ""
+        stack_utg_2 = ""
+        stack_lowjack = ""
+        stack_highjack = ""
+        stack_cutoff = ""
+        stack_smallblind = ""
+        stack_bigblind = ""
+
         action = ""
         flop = ""
         turn = ""
