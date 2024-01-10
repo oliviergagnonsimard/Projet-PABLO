@@ -29,31 +29,38 @@ class Parse:
         turn = ""
         river = ""
 
-        motif_1 = r'^Seat 1: \w+'
+        motif_1 = r'^Seat \w: andy_keiv'
 
 
-        smallblind = ":\sposts\ssmall\sblind"
-
-        bigblind_motif = r".+:\sposts\sbig\sblind"
-
-        bb = re.search(bigblind_motif, self.main)
-        bigblind = bb.recup_pseudo()
+        smallblind_info = re.search(r":\sposts\ssmall\sblind", self.main).group()
+        bigblind_info = re.search(r".+:\sposts\sbig\sblind", self.main).group()
+        smallblind = self.recup_pseudo_avant(smallblind_info)
+        bigblind = self.recup_pseudo_avant(bigblind_info)
 
 
-    def recup_pseudo_avant(self, chemin):
-        for i in chemin:
+    def recup_pseudo_avant(self, infos):
+        for i in infos:
             a = ""
             if i != ":":
                 a += i
             else:
-                pseudo = a
-    def recup_pseudo_apres(self, chemin):
-        for i in chemin:
-        #    a = ""
+                return a
+    def recup_pseudo_apres(self, infos):
+        for i in infos:
             b = 0
             if i != ":":
                 b+=1
-        #    else:
-        #        pseudo = chemin[]
+            else:
+                return infos[b+1:]
+    def recherche_seat_bb(self,bigblind_pseudo):
+        info = re.search(fr"^ Seat \w: {bigblind_pseudo}",self.main).group()
+        self.num_seat_bb = info[6]
+
+    def recherche_position(self,num_seat_bb,pseudo):
+        pass
+
+
+
+
 
 
