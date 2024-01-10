@@ -8,14 +8,14 @@ class Bot:
     def __init__(self):
         pass
 
-    def _run(self, first_spot = (750, 250)):
+    def _run(self, first_spot = (750, 250), nbTables = 21):
         bot = Bot()
         bot.DemanderEmplacementPokerstars()
         time.sleep(10)
         bot.AccéderAuCompte()
         time.sleep(5)
         bot.DescendreEnBas(first_spot[0], first_spot[1])
-        bot.OuvrirTables()
+        bot.OuvrirTables(nbTables)
 
     def DemanderEmplacementPokerstars(self):
         bot = Bot()
@@ -44,13 +44,14 @@ class Bot:
             Bot.press("down")
         Bot.press("up")
 
-    def OuvrirTables(self):
-        for _ in range(21):
+    def OuvrirTables(self, nbTables):
+        for _ in range(nbTables):
             Bot.press("enter")
 
-            Bot.press("alt")
-            time.sleep(0.2)
+            pyautogui.keyDown("alt")
             Bot.press("tab")
+            pyautogui.keyUp("alt")
+            time.sleep(0.3)
 
             Bot.press("up")
         pass
@@ -63,4 +64,5 @@ class Bot:
         pyautogui.press(touche)
 
 bot = Bot()
-bot._run()
+bot._run(nbTables=5)
+# Pokerstars autorise jusqu'à 21 tables observés à la fois.
