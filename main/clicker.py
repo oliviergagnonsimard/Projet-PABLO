@@ -27,4 +27,4 @@ class Clicker:
 
     
 if __name__ == '__main__':
-    pyautogui.
+    pyautogui.displayMousePosition()
