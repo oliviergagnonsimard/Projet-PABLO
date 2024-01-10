@@ -23,6 +23,12 @@ class Bot:
         os.startfile(path)
 
 
+    def AccéderAuCompte(self):
+        
+        pass
+    
+
+
 bot = Bot()
 
 bot.DemanderEmplacementPokerStars()
