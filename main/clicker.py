@@ -1,7 +1,7 @@
 import pyautogui
 import time
 import subprocess
-# This class is for cliquing on the screen with the mouse and coping the inofrmation of the hand review of pokerstars
+# This class is for cliquing on the screen with the mouse and copying the information of the hand review of pokerstars
 class Clicker:
 
     def __init__(self):
