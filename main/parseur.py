@@ -1,3 +1,5 @@
+import re
+
 class Parse:
 
     def __init__(self,main):
@@ -12,8 +14,7 @@ class Parse:
         highjack = ""
         cutoff = ""
         button = ""
-        smallblind = ""
-        bigblind = ""
+
 
         stack_utg = ""
         stack_utg_1 = ""
@@ -28,6 +29,25 @@ class Parse:
         flop = ""
         turn = ""
         river = ""
+
+        motif_1 = r'^Seat 1:[ABC]'
+
+
+        smallblind = ":\sposts\ssmall\sblind"
+
+        bigblind_motif = r".+:\sposts\sbig\sblind"
+
+        bb = re.search(bigblind_motif, self.main)
+
+
+
+    def recup_pseudo(self,chemin):
+        for i in chemin:
+            a = ""
+            if i != ":":
+                a += i
+            else:
+                pseudo = a
 
 
 
