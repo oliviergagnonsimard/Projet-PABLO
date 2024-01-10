@@ -26,3 +26,5 @@ class Clicker:
         pyautogui.hotkey('ctrl', 'c')
 
     
+if __name__ == '__main__':
+    pyautogui.
