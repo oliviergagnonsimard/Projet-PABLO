@@ -5,7 +5,7 @@ class Parse:
     def __init__(self,main):
         self.main = main
         self.nombre_joueur = self.nombre_joueur()
-
+        self.num_seat_bb = ''
     def identifier_infos(self):
         utg = ""
         utg_1 = ""
@@ -55,9 +55,18 @@ class Parse:
                 b+=1
             else:
                 return infos[b+1:]
+    def recup_stack_joueur(self,joueur):
+        a = re.search(r"^Seat \d: andy_keiv \(\$\d\.\d+ in chips\)",self.main)
+
     def recherche_seat_bb(self,bigblind_pseudo):
-        info = re.search(r"^Seat \d: "+bigblind_pseudo,self.main).group()
+
+      #  try:
+        g = re.compile(fr"^Seat \d: {bigblind_pseudo}")
+        info = re.search(g, self.main)
+        info2 = info.group()
         self.num_seat_bb = info[6]
+       # except AttributeError:
+         #   print("a")
 
     def recherche_position(self,num_seat_bb,pseudo):
        # if re.search(r"^Table '\w+ \w+' 6-max",self.main):
