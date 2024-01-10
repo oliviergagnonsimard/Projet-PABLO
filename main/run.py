@@ -40,11 +40,8 @@ class Bot:
 
     def DescendreEnBas(self, x, y, durée):
         Bot.click(x, y)
-        start_time = time.time()
-        while time.time() - start_time < durée:
-            print("test")
-            pyautogui.keyDown("Down")
-        pyautogui.keyUp("Down")
+        for _ in range(75):
+            Bot.press("down")
         Bot.press("up")
 
     def OuvrirTables(self, nbTables):
