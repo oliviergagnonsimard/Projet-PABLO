@@ -7,22 +7,6 @@ class Parse:
         self.nombre_joueur = self.nombre_joueur()
         self.num_seat_bb = ''
     def identifier_infos(self):
-        utg = ""
-        utg_1 = ""
-        utg_2 = ""
-        lowjack = ""
-        highjack = ""
-        cutoff = ""
-        button = ""
-
-        stack_utg = ""
-        stack_utg_1 = ""
-        stack_utg_2 = ""
-        stack_lowjack = ""
-        stack_highjack = ""
-        stack_cutoff = ""
-        stack_smallblind = ""
-        stack_bigblind = ""
 
         action = ""
         flop = ""
@@ -62,8 +46,21 @@ class Parse:
             else:
                 return infos[b+2:]
     def recup_stack_joueur(self,joueur):
-        a = re.search(r"Seat \d: .+ \(\$\d\.\d+ in chips\)",self.main).group()
-        b = re.search(r"",a)
+        stack = re.search(fr"Seat \d: {joueur} \(\$\d\.\d+ in chips\)",self.main).group()
+
+        if self.bigblind == joueur:
+            self.stack_bigblind = float(re.search(r"\$\d\.\d+",stack).group()[1:])/0.02
+        elif self.smallblind == joueur:
+            self.stack_smallblind = float(re.search(r"\$\d\.\d+",stack).group()[1:])/0.02
+        elif self.cutoff == joueur:
+            self.stack_cutoff = float(re.search(r"\$\d\.\d+",stack).group()[1:])/0.02
+        elif self.highjack == joueur:
+            self.stack_highjack = float(re.search(r"\$\d\.\d+",stack).group()[1:])/0.02
+        elif self.lowjack == joueur:
+            self.stack_lowjack = float(re.search(r"\$\d\.\d+",stack).group()[1:])/0.02
+        elif self.button == joueur:
+            self.stack_button = float(re.search(r"\$\d\.\d+",stack).group()[1:])/0.02
+
 
     def recherche_seat_bb(self,bigblind_pseudo):
         pseudo_esc = re.escape(bigblind_pseudo)
