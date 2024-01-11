@@ -61,7 +61,6 @@ class Parse:
         elif self.button == joueur:
             self.stack_button = float(re.search(r"\$\d\.\d+",stack).group()[1:])/0.02
 
-
     def recherche_seat_bb(self,bigblind_pseudo):
         pseudo_esc = re.escape(bigblind_pseudo)
         motif = fr"Seat \d: {pseudo_esc}"
