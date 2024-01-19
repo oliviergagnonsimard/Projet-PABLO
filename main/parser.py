@@ -122,6 +122,16 @@ LongRanges: shows [Ts Kh] (a pair of Kings)
 Marwizy: shows [5h Ah] (a pair of Aces)
 Marwizy collected $5.52 from pot
 *** SUMMARY ***
+<<<<<<< HEAD
+Total pot $0.11 | Rake $0
+Board [6c Th 2c 2d 7d]
+Seat 1: andy_keiv (big blind) showed [8d Qs] and lost with a pair of Deuces
+Seat 2: RReyesJ folded before Flop (didn't bet)
+Seat 3: ULISSES 222 folded before Flop (didn't bet)
+Seat 5: altazorchile (button) showed [5d 6d] and won ($0.11) with two pair, Sixes and Deuces
+Seat 6: PokerBoss2639 (small blind) folded before Flop""")
+P.identifier_infos()
+=======
 Total pot $5.72 | Rake $0.20 
 Board [9h 7s Ks Ac 6s]
 Seat 1: BeSmartNFold folded on the Flop
@@ -170,3 +180,4 @@ Seat 6: Nema.H.B folded on the Flop
 # Seat 5: altazorchile (button) showed [5d 6d] and won ($0.11) with two pair, Sixes and Deuces
 # Seat 6: PokerBoss2639 (small blind) folded before Flop""")
 P.identifier_infos()
+>>>>>>> 4d0e0f92c7022d3560a5daf5370afebe3621005a
