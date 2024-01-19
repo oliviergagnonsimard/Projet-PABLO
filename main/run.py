@@ -2,6 +2,7 @@ import os
 import pyautogui
 import time
 
+# WIN+UP (fullscreen)
 class Bot:
     DEFAULTPATH = "C:/Program Files (x86)/PokerStars/PokerStarsUpdate.exe"
     
@@ -13,9 +14,10 @@ class Bot:
         bot.DemanderEmplacementPokerstars()
         time.sleep(10)
         bot.AccéderAuCompte()
-        time.sleep(5)
+        time.sleep(6)
         bot.DescendreEnBas(first_spot[0], first_spot[1], durée)
         bot.OuvrirTables(nbTables)
+        bot.OuvrirHistorique()
 
     def DemanderEmplacementPokerstars(self):
         bot = Bot()
@@ -56,11 +58,34 @@ class Bot:
             time.sleep(0.3)
 
             Bot.press("up")
-        pass
+
+    def OuvrirHistorique(self):
+        pyautogui.keyDown("alt")
+        time.sleep(0.3)
+        Bot.press("tab")
+        time.sleep(0.3)
+        Bot.press("tab")
+        pyautogui.keyUp("alt")
+        time.sleep(0.3)
+
+        pyautogui.keyDown("win")
+        time.sleep(0.3)
+        pyautogui.press("up")
+        time.sleep(0.3)
+        pyautogui.keyUp("win")
+
+        time.sleep(2)
+
+        bot.click(250, 850)
+        time.sleep(1)
+        bot.click(720, 930)
+
+
 
     @staticmethod
     def click(x, y):
         pyautogui.click(x, y)
+
     @staticmethod
     def press(touche):
         pyautogui.press(touche)
