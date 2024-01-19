@@ -1,6 +1,7 @@
 import os
 import pyautogui
 import time
+import pygetwindow as gw
 
 # WIN+UP (fullscreen)
 class Bot:
@@ -10,25 +11,23 @@ class Bot:
         pass
 
     def _run(self, first_spot = (750, 250), nbTables = 21, durée = 8):
-        bot = Bot()
-        bot.DemanderEmplacementPokerstars()
+        self.DemanderEmplacementPokerstars()
         time.sleep(10)
-        bot.AccéderAuCompte()
+        self.AccéderAuCompte()
         time.sleep(6)
-        bot.DescendreEnBas(first_spot[0], first_spot[1], durée)
-        bot.OuvrirTables(nbTables)
-        bot.OuvrirHistorique()
+        self.DescendreEnBas(first_spot[0], first_spot[1], durée)
+        self.OuvrirTables(nbTables)
+        self.OuvrirHistorique()
 
     def DemanderEmplacementPokerstars(self):
-        bot = Bot()
         print("current default path: ""C:\Program Files (x86)\PokerStars\PokerStarsUpdate.exe""")
         answer = input("Would you like to use the default path to pokerstars? (y/n) ")
         if answer == "y":
             self.path = self.DEFAULTPATH
-            bot.OuvrirPokerstars(self.path)
+            self.OuvrirPokerstars(self.path)
             return
         self.path = input("Where is pokerstars installed? (.exe) : ")
-        bot.OuvrirPokerstars(self.path)
+        self.OuvrirPokerstars(self.path)
 
 
     def OuvrirPokerstars(self, path):
@@ -76,9 +75,14 @@ class Bot:
 
         time.sleep(2)
 
-        bot.click(250, 850)
+        self.click(250, 870)
         time.sleep(1)
-        bot.click(720, 930)
+        self.click(720, self.get_window_size("PokerStars Lobby")[1] * 0.89)
+
+    #89%
+    def get_window_size(self, title):
+        window = gw.getWindowsWithTitle(title)[0]
+        return window.width, window.height
 
 
 
