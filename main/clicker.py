@@ -1,13 +1,24 @@
 import pyautogui
 import time
 import subprocess
-# This class is for cliquing on the screen with the mouse and copying the information of the hand review of pokerstars
+
 class Clicker:
+    """
+    This class is for cliquing on the screen with the mouse and coping the inofrmation of the hand review of pokerstars
+    
+    Attributes:
+        None
 
-    def __init__(self):
-        pass
+    Methods:
+        _run: This function is the main function of the class, it will click on the screen and copy the hand review, it need to be in a loop so it can be used multiple times
+        click: This function will click on the screen at the position given in the parameters
+        press_down_arrow: This function will press the down arrow on the keyboard
+        press_ctrl_a: This function will press ctrl + a on the keyboard
+        press_ctrl_c: This function will press ctrl + c on the keyboard
+    """
 
-    def _run(self, first_spot: tuple = (900,115), second_spot: tuple = (850,500)) -> None:
+    # This function is the main function of the class, it will click on the screen and copy the hand review, it need to be in a loop so it can be used multiple times
+    def _run(self, first_spot: tuple = (900,115), second_spot: tuple = (850,500)) -> str:
         self.click(first_spot[0], first_spot[1])
         time.sleep(0.5)
         self.press_down_arrow()
@@ -21,7 +32,7 @@ class Clicker:
         return subprocess.check_output('powershell Get-Clipboard', shell=True).decode('utf-8') # take wahat is in the clipboard so it is the hand review
     
     @staticmethod
-    def click(x, y) -> None:
+    def click(x: int, y: int) -> None:
         pyautogui.click(x, y)
 
     @staticmethod
@@ -40,8 +51,7 @@ class Clicker:
     
 if __name__ == '__main__':
     #pyautogui.displayMousePosition()
-    #clicker = Clicker()
-    #time.sleep(5)
-    #print(clicker._run())
+    clicker = Clicker()
+    time.sleep(5)
+    print(clicker._run(second_spot=(850, 500)))
     pass
-    

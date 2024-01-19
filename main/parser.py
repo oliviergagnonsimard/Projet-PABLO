@@ -8,12 +8,12 @@ class Parse:
         self.num_seat_bb = ''
     def identifier_infos(self):
 
-        action = ""
-        flop = ""
-        turn = ""
-        river = ""
+        #action = ""
+        #flop = ""
+        #turn = ""
+        #river = ""
 
-        motif_1 = r'Seat \w: andy_keiv'
+        #motif_1 = r'Seat \w: andy_keiv'
 
         smallblind_info = re.search(r".+:\sposts\ssmall\sblind", self.main).group()
         bigblind_info = re.search(r".+:\sposts\sbig\sblind", self.main).group()
@@ -21,7 +21,7 @@ class Parse:
         self.bigblind = self.recup_pseudo_avant(bigblind_info)
         self.recherche_seat_bb(self.bigblind)
         b=0
-        for i in range(int(self.nombre_joueur)+1):
+        for _ in range(int(self.nombre_joueur)+1):
             b+=1
             try:
                 pseudo = re.search(fr"Seat {b}: \w+", self.main).group()
@@ -62,9 +62,7 @@ class Parse:
             self.stack_button = float(re.search(r"\$\d\.\d+",stack).group()[1:])/0.02
 
     def recherche_seat_bb(self,bigblind_pseudo):
-        pseudo_esc = re.escape(bigblind_pseudo)
-        motif = fr"Seat \d: {pseudo_esc}"
-
+        motif = fr"Seat \d: {re.escape(bigblind_pseudo)}"
         match = re.search(motif, self.main)
         info2 = match.group()
         self.num_seat_bb = info2[5]
